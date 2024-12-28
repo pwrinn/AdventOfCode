@@ -10,6 +10,34 @@ import java.util.Objects;
 
 public class Day01 {
 
+    public static void main(String[] args) {
+        List<Integer> fileInput1 = new ArrayList<>();
+        List<Integer> fileInput2 = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("src/aoc2024/01.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] columns = line.split(" ");
+
+                String firstColumn = columns[0];
+                String secondColumn = columns[3];
+
+                fileInput1.add(Integer.parseInt(firstColumn));
+                fileInput2.add(Integer.parseInt(secondColumn));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Integer[] arr1 = new Integer[fileInput1.size()];
+        arr1 = fileInput1.toArray(arr1);
+        Integer[] arr2 = new Integer[fileInput2.size()];
+        arr2 = fileInput2.toArray(arr2);
+
+        System.out.println("Part 1: " + sum(arr1, arr2));
+        System.out.println("Part 2: " + similarity(arr1, arr2));
+    }
+
     static Integer sum(Integer[] a, Integer[] b) {
         int sum = 0;
         Arrays.sort(a);
@@ -38,38 +66,5 @@ public class Day01 {
         }
 
         return similarity;
-    }
-
-    public static void main(String[] args) {
-        int[] input1 = { 3, 4, 2, 1, 3, 3 };
-        int[] input2 = { 4, 3, 5, 3, 9, 3 };
-
-        List<Integer> fileInput1 = new ArrayList<>();
-        List<Integer> fileInput2 = new ArrayList<>();
-
-        String filePath = "src/aoc2024/01.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] columns = line.split(" ");
-
-                String firstColumn = columns[0];
-                String secondColumn = columns[3];
-
-                fileInput1.add(Integer.parseInt(firstColumn));
-                fileInput2.add(Integer.parseInt(secondColumn));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Integer[] arr1 = new Integer[fileInput1.size()];
-        arr1 = fileInput1.toArray(arr1);
-        Integer[] arr2 = new Integer[fileInput2.size()];
-        arr2 = fileInput2.toArray(arr2);
-
-        //System.out.println(sum(arr1, arr2));
-        System.out.println(similarity(arr1, arr2));
     }
 }
