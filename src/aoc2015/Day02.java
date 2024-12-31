@@ -1,17 +1,11 @@
 package aoc2015;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class Day02 {
+public class Day02 implements Setup {
 
     public static void main(String[] args) {
-        List<String> packages = getInput("src/aoc2015/02.txt");
+        List<String> packages = Setup.getInput("src/aoc2015/02.txt");
 
         int totalPaper = 0;
         int ribbon = 0;
@@ -41,14 +35,5 @@ public class Day02 {
 
     private static int surfaceArea(int l, int w, int h) {
         return 2 * ((l * w) + (w * h) + (l * h));
-    }
-
-    private static List<String> getInput(String filename) {
-        try (Stream<String> stream = Files.lines(Paths.get(filename))) {
-            return stream.collect(Collectors.toList());
-        } catch (final IOException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
     }
 }
