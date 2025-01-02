@@ -18,8 +18,8 @@ public class Day09 implements Setup {
             cities.add(city1);
             cities.add(city2);
 
-            distances.computeIfAbsent(city1, k -> new HashMap<>()).put(city2, distance);
-            distances.computeIfAbsent(city2, k -> new HashMap<>()).put(city1, distance);
+            distances.computeIfAbsent(city1, _ -> new HashMap<>()).put(city2, distance);
+            distances.computeIfAbsent(city2, _ -> new HashMap<>()).put(city1, distance);
         }
 
         List<String> cityList = new ArrayList<>(cities);
