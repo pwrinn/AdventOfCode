@@ -13,11 +13,11 @@ public class Day06 implements Setup {
         List<String> lines = Setup.getInput("src/aoc2015/06.txt");
         boolean[][] grid1 = new boolean[1000][1000];
         int[][] grid2 = new int[1000][1000];
-        System.out.println(part1(lines, grid1));
-        System.out.println(part2(lines, grid2));
+        System.out.println("Part 1: " + part1(lines, grid1));
+        System.out.println("Part 2: " + part2(lines, grid2));
     }
 
-    public static int part1(List<String> lines, boolean[][] grid) {
+    private static int part1(List<String> lines, boolean[][] grid) {
 
         for (String instr : lines) {
             Matcher m = PATTERN.matcher(instr);
@@ -60,7 +60,7 @@ public class Day06 implements Setup {
         return count;
     }
 
-    public static int part2(List<String> lines, int[][] grid) {
+    private static int part2(List<String> lines, int[][] grid) {
 
         for (String instr : lines) {
             Matcher m = PATTERN.matcher(instr);

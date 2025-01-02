@@ -11,8 +11,8 @@ public class Day07 implements Setup {
 
     public static void main(String[] args) {
         List<String> instructions = Setup.getInput("src/aoc2015/07.txt");
-        System.out.println(part1(instructions));
-        System.out.println(part2(instructions));
+        System.out.println("Part 1: " + part1(instructions));
+        System.out.println("Part 2: " + part2(instructions));
     }
 
     public static int part1(List<String> instructions) {
