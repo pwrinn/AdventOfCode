@@ -24,3 +24,4 @@ out/
 *.tar.gz
 *.rar
 *.txt
+*.json
